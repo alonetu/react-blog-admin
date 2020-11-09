@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import './style/index.scss';
+import 'antd/dist/antd.css';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import Home from './pages/Home';
+import Login from './pages/Login';
+import { Route, HashRouter, Redirect } from 'react-router-dom';
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const router =
+  <HashRouter>
+    <Redirect to="/login" from='/' exact />
+    <Route path="/home" component={Home}></Route>
+    <Route path="/login" component={Login}></Route>
+  </HashRouter>
+
+ReactDOM.render(router, document.getElementById('root'))
