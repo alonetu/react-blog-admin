@@ -12,7 +12,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
+      <div className="login">
         <Form onSubmit={this.handleSubmit}>
           <FormItem label="账户" name="name">
             <Input placeholder="请输入账户名"/>

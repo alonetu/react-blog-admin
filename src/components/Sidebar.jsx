@@ -9,16 +9,18 @@ import {
 const { SubMenu } = Menu;
 
 class Sidebar extends Component {
-  getInitialState = () => {
-    return {
-      current: "1",
+  constructor(props) {
+    super(props);
+    this.state = {
+      current: {},
     };
-  };
+  }
   handleClick = (e) => {
     console.log("click ", e);
-    this.setState({
-      current: e.key,
-    });
+    this.props.history.push("/search-blog");
+    // this.setState({
+    //   current: e.key,
+    // });
   };
 
   render() {
