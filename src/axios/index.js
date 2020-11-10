@@ -12,14 +12,15 @@ axios.interceptors.response.use(res => {
   return err
 })
 
+/**
+ * @param {string} method 请求方式
+ * @param {string} url url
+ * @param {*} data 默认post参数
+ * @param {*} headers
+ * @param {*} withCredentials 携带cookie
+ */
+
 export default {
-  /**
-   * @param {string} method 请求方式
-   * @param {string} url url
-   * @param {*} data 默认post参数
-   * @param {*} headers
-   * @param {*} withCredentials 携带cookie
-   */
 
   axios(method = 'get', baseURL = null, url = null, data = null, headers = {}) {
     return new Promise((resolve, reject) => {

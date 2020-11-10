@@ -9,13 +9,17 @@ import {
 const { SubMenu } = Menu;
 
 class Navbar extends Component {
-  state = {
-    current: "mail",
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      current: "mail",
+    };
+  }
 
   handleClick = (e) => {
     console.log("click ", e);
     this.setState({ current: e.key });
+    this.props.history.push(e.key)
   };
 
   render() {
@@ -26,11 +30,11 @@ class Navbar extends Component {
         selectedKeys={[current]}
         mode="horizontal"
       >
-        <Menu.Item key="mail" icon={<MailOutlined />}>
-          Navigation One
+        <Menu.Item key="/home/user-manage" icon={<MailOutlined />}>
+          用户管理
         </Menu.Item>
-        <Menu.Item key="app" disabled icon={<AppstoreOutlined />}>
-          Navigation Two
+        <Menu.Item key="/home/search-blog" icon={<AppstoreOutlined />}>
+          博客搜索
         </Menu.Item>
         <SubMenu
           key="SubMenu"
@@ -41,20 +45,20 @@ class Navbar extends Component {
             <Menu.Item key="setting:1">Option 1</Menu.Item>
             <Menu.Item key="setting:2">Option 2</Menu.Item>
           </Menu.ItemGroup>
-          <Menu.ItemGroup title="Item 2">
-            <Menu.Item key="setting:3">Option 3</Menu.Item>
-            <Menu.Item key="setting:4">Option 4</Menu.Item>
-          </Menu.ItemGroup>
         </SubMenu>
-        <Menu.Item key="alipay">
-          <a
-            href="https://ant.design"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Navigation Four - Link
-          </a>
-        </Menu.Item>
+        <SubMenu key="admin" icon={<AppstoreOutlined />} title="admin">
+          <Menu.Item key="setting:1">个人中心</Menu.Item>
+          <Menu.Item key="alipay">
+            <a
+              href="https://github.com/alonetu/react-blog-admin"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              项目地址
+            </a>
+          </Menu.Item>
+          <Menu.Item key="setting:2">退出</Menu.Item>
+        </SubMenu>
       </Menu>
     );
   }
