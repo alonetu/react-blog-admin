@@ -1,9 +1,9 @@
 import Server from './axios'
 
-const baseURL = '/api'
-
-export default {
+const api = {
   async getData() {
-    return await Server.axios('GET', baseURL, `/login`)
+    return await Server.get(`/login`)
   }
 }
+
+export default api

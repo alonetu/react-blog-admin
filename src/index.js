@@ -2,6 +2,7 @@
 import ReactDOM from 'react-dom';
 import './style/index.scss';
 import 'antd/dist/antd.css';
+import 'nprogress/nprogress.css'
 
 import router from './router'
 
