@@ -14,13 +14,23 @@ class Login extends Component {
     return (
       <div className="login">
         <Form onSubmit={this.handleSubmit} className="login-form">
-          <FormItem label="账户" name="name" className="login-form-input">
-            <Input placeholder="请输入账户名" />
+          <FormItem name="name" className="login-form-input">
+            <Input placeholder="请输入用户名" className="login-form-user" />
           </FormItem>
-          <FormItem label="密码" name="password" className="login-form-input">
-            <Input type="password" placeholder="请输入密码" />
+          <FormItem name="password" className="login-form-input">
+            <Input
+              type="password"
+              placeholder="请输入密码"
+              className="login-form-password"
+            />
           </FormItem>
-          <Button type="primary" htmlType="submit" onClick={this.handleSubmit} className="login-form-btn">
+          <Button
+            type="primary"
+            shape="round"
+            htmlType="submit"
+            onClick={this.handleSubmit}
+            className="login-form-btn"
+          >
             登录
           </Button>
         </Form>
