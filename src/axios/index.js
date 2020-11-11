@@ -31,27 +31,16 @@ axios.interceptors.response.use(res => {
  * @param {*} headers
  */
 const serve = {
-  // axios(method = 'get', url = null, data = null, headers = {}) {
-  //   return new Promise((resolve, reject) => {
-  //     axios({
-  //       method,
-  //       url,
-  //       data,
-  //       headers
-  //     }).then(result => resolve(result))
-  //       .catch(err => reject(err))
-  //   })
-  // }
   get(url = null, headers = {}) {
     return new Promise((resolve, reject) => {
-      axios({ url, headers })
+      axios({ method: 'get',url, headers })
         .then(res => resolve(res))
         .catch(err => reject(err))
     })
   },
   post(url = null, data = null, headers = {}) {
     return new Promise((resolve, reject) => {
-      axios({ url, data, headers })
+      axios({ method: 'post', url, data, headers })
         .then(res => resolve(res))
         .catch(err => reject(err))
     })
